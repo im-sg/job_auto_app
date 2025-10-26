@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Auto App</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>🧠 Job Auto Application Assistant</h1>
+
+  <h2>Add Profile</h2>
+  <form action="/profiles/add" method="post">
+    <input type="text" name="profile_name" placeholder="Profile Name" required>
+    <input type="text" name="description" placeholder="Description">
+    <button type="submit">Add Profile</button>
+  </form>
+
+  <h2>Existing Profiles</h2>
+  <ul>
+    {% for p in profiles %}
+      <li><b>{{ p.profile_name }}</b> — {{ p.description or 'No description' }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
